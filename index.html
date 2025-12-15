@@ -1,196 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DAYS</title>
-
+  <meta charset="UTF‑8">
+  <meta name="viewport" content="width=device‑width, initial‑scale=1.0">
+  <title>Welcome Baby</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <style>
     body {
-  margin: 0;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.container {
-  width: 100%;
-  max-width: 1000px;
-  padding: 40px 20px;
-}
-
-.timer {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.timer h1 {
-  margin-bottom: 25px;
-}
-
-.time {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-.time div {
-  text-align: center;
-}
-
-.time span {
-  font-size: 40px;
-  font-weight: 800;
-  display: block;
-}
-
-.time small {
-  font-size: 12px;
-  opacity: 0.8;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 28px;
-  border-radius: 16px;
-}
-
-.card h2 {
-  margin-top: 0;
-  margin-bottom: 12px;
-}
-
-.card p {
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .time {
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-  </style>
-</head>
-
-<body>
-  <div class="container">
-
-  <!-- OVERALL TIMER -->
-  <div class="timer">
-    <h1>It's been.....</h1>
-    <div class="time">
-      <div>
-        <span id="days">0</span>
-        <small>Days</small>
-      </div>
-      <div>
-        <span id="hours">0</span>
-        <small>Hours</small>
-      </div>
-      <div>
-        <span id="minutes">0</span>
-        <small>Minutes</small>
-      </div>
-      <div>
-        <span id="seconds">0</span>
-        <small>Seconds</small>
-      </div>
-    </div>
-  </div>
-
-  <!-- INFO CARDS -->
-  <div class="cards">
-    <div class="card">
-      <h2>Timeline</h2>
-      <p>
-        Day 1 — Start<br>
-        Day 30 — Adjusting<br>
-        Day 90 — Consistency<br>
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>THINGS I LOVE ABOUT YOU</h2>
-      <p>
-        Your eyes
-        Your face
-        The way you smile
-        The way you say HELLO and Sasa
-        When you call me babygirl
-        How you look in jeans
-        You're hot...Damn!!<br>
-        <br>
-        Training fuel<br>
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>Reasons I Don’t</h2>
-      <p>
-        Discipline<br>
-        Intentional fasting<br>
-        Mental clarity<br>
-      </p>
-    </div>
-  </div>
-
-</div>
-
-
-
-  <script>
-    // Start date: 16th October 2024 (midnight)
-    const startDate = new Date("October 16, 2024 14:00:00");
-
-    const daysEl = document.getElementById("days");
-  const hoursEl = document.getElementById("hours");
-  const minutesEl = document.getElementById("minutes");
-  const secondsEl = document.getElementById("seconds");
-
-  function updateTimeSince() {
-    const now = new Date().getTime();
-    const difference = now - startDate;
-
-    if (difference < 0) {
-      daysEl.textContent = 0;
-      hoursEl.textContent = 0;
-      minutesEl.textContent = 0;
-      secondsEl.textContent = 0;
-      return;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Pacifico', cursive;
+      background: #fff url('https://i.imgur.com/EPYdI6Y.png') repeat; /* Crumpled paper texture */
+      background-size: cover;
+      color: #000;
+      overflow: hidden;
+      text-align: center;
     }
 
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((difference / (1000 * 60)) % 60);
-    const seconds = Math.floor((difference / 1000) % 60);
+    .landing-content {
+      animation: fadeIn 1.5s ease forwards;
+    }
 
-    daysEl.textContent = days;
-    hoursEl.textContent = hours;
-    minutesEl.textContent = minutes;
-    secondsEl.textContent = seconds;
-  }
+    .cat-img {
+      width: 140px;
+      margin: 0 auto 20px;
+      animation: bounce 2s infinite alternate;
+    }
 
-  setInterval(updateTimeSince, 1000);
-  updateTimeSince();
-</script>
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+
+    h1 span.red {
+      color: #e63946; /* Red for "Baby" */
+    }
+
+    .enter-button {
+      display: inline-block;
+      padding: 15px 50px;
+      font-size: 1.5rem;
+      color: #e63946;
+      border: 2px solid #e63946;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .enter-button:hover {
+      background-color: #e63946;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .love-note {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 1.2rem;
+      color: #ff6b81;
+      opacity: 0.9;
+      pointer-events: none; /* so it doesn't block clicks */
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes bounce {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-15px); }
+    }
+
+    @media(max-width: 500px) {
+      h1 { font-size: 2.5rem; }
+      .cat-img { width: 100px; }
+      .enter-button { padding: 12px 35px; font-size: 1.2rem; }
+      .love-note { font-size: 1rem; bottom: 15px; right: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="landing-content">
+    
+    <!-- Handwritten Text -->
+    <h1>Hello <span class="red">Baby...</span></h1>
+
+    <!-- Proceed Button -->
+    <a href="main.html" class="enter-button">Proceed</a>
+
+  </div>
+
+  <!-- Love Note in Corner -->
+  <div class="love-note">with lots of love, Eileen</div>
+
 </body>
 </html>
