@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DAYS</title>
+
+  <style>
+    body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 40px 20px;
+}
+
+.timer {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.timer h1 {
+  margin-bottom: 25px;
+}
+
+.time {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.time div {
+  text-align: center;
+}
+
+.time span {
+  font-size: 40px;
+  font-weight: 800;
+  display: block;
+}
+
+.time small {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 28px;
+  border-radius: 16px;
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.card p {
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .time {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+  <!-- OVERALL TIMER -->
+  <div class="timer">
+    <h1>It's been.....</h1>
+    <div class="time">
+      <div>
+        <span id="days">0</span>
+        <small>Days</small>
+      </div>
+      <div>
+        <span id="hours">0</span>
+        <small>Hours</small>
+      </div>
+      <div>
+        <span id="minutes">0</span>
+        <small>Minutes</small>
+      </div>
+      <div>
+        <span id="seconds">0</span>
+        <small>Seconds</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFO CARDS -->
+  <div class="cards">
+    <div class="card">
+      <h2>Timeline</h2>
+      <p>
+        Day 1 — Start<br>
+        Day 30 — Adjusting<br>
+        Day 90 — Consistency<br>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Reasons I Eat</h2>
+      <p>
+        Energy<br>
+        Focus<br>
+        Training fuel<br>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Reasons I Don’t</h2>
+      <p>
+        Discipline<br>
+        Intentional fasting<br>
+        Mental clarity<br>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <script>
+    // Start date: 16th October 2024 (midnight)
+    const startDate = new Date("October 16, 2024 14:00:00");
+
+    const daysEl = document.getElementById("days");
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
+  const secondsEl = document.getElementById("seconds");
+
+  function updateTimeSince() {
+    const now = new Date().getTime();
+    const difference = now - startDate;
+
+    if (difference < 0) {
+      daysEl.textContent = 0;
+      hoursEl.textContent = 0;
+      minutesEl.textContent = 0;
+      secondsEl.textContent = 0;
+      return;
+    }
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((difference / (1000 * 60)) % 60);
+    const seconds = Math.floor((difference / 1000) % 60);
+
+    daysEl.textContent = days;
+    hoursEl.textContent = hours;
+    minutesEl.textContent = minutes;
+    secondsEl.textContent = seconds;
+  }
+
+  setInterval(updateTimeSince, 1000);
+  updateTimeSince();
+</script>
+</body>
+</html>
