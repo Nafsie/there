@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hey Baby</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      background: linear-gradient(135deg, #fceabb, #f8b500);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      max-width: 900px;
+      padding: 40px;
+      background: rgba(255,255,255,0.85);
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .timer h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      margin-bottom: 25px;
+      color: #ff6b81;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .time div {
+      background: rgba(255,255,255,0.6);
+      padding: 20px 15px;
+      border-radius: 16px;
+      min-width: 80px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .time div:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .time span {
+      display: block;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ff6b81;
+    }
+
+    .time small {
+      display: block;
+      font-size: 0.9rem;
+      opacity: 0.85;
+      color: #555;
+    }
+
+    .card-custom {
+      background: rgba(255,255,255,0.7);
+      border-radius: 25px;
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .card-custom:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .card-custom h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #ff6b81;
+    }
+
+    .card-custom p {
+      line-height: 1.6;
+      font-size: 1rem;
+      opacity: 0.95;
+      color: #333;
+    }
+
+    .music-section h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2rem;
+      margin: 35px 0 20px 0;
+      text-align: center;
+      color: #ff6b81;
+    }
+
+    .music-section audio {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 12px;
+      display: block;
+      margin: 0 auto 40px auto;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      .time div { min-width: 60px; padding: 15px; }
+      .timer h1 { font-size: 2.2rem; }
+      .card-custom h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container py-5 text-center">
+  <!-- Top Timer -->
+  <div class="timer mb-5">
+    <h1>It's been.....</h1>
+    <div class="d-flex justify-content-center gap-3 flex-wrap time">
+      <div>
+        <span id="days">0</span>
+        <small>Days</small>
+      </div>
+      <div>
+        <span id="hours">0</span>
+        <small>Hours</small>
+      </div>
+      <div>
+        <span id="minutes">0</span>
+        <small>Minutes</small>
+      </div>
+      <div>
+        <span id="seconds">0</span>
+        <small>Seconds</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards Section -->
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="card-custom">
+        <h2>Things I Love About You</h2>
+        <p>
+          Your eyes 👀<br>
+          Your face 😊<br>
+          The way you say my name 💖<br>
+          The way you smile 😍<br>
+          The way you say hello and "sasa" 🙌<br>
+          When you call me "babygirl" 🥰<br>
+          How you look in jeans.....Damn!!!<br>
+          You're Hot 🥰<br>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card-custom">
+        <h2>Things I Hate About You</h2>
+        <p>
+          You think I'm weird 😅<br>
+          That you don't encourage my tantrums<br>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Music Section -->
+  <div class="music-section">
+    <h2>A Song for you</h2>
+    <audio controls autoplay loop>
+  <source src="oursong.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const startDate = new Date("October 16, 2024 00:00:00").getTime();
+
+  function updateTimer() {
+    const now = new Date().getTime();
+    const diff = now - startDate;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+  }
+
+  updateTimer();
+  setInterval(updateTimer, 1000);
+</script>
+
+</body>
+</html>
