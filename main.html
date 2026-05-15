@@ -4,213 +4,389 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hey Baby</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      margin: 0;
+      background: #fdf6f0;
+      font-family: 'Lato', sans-serif;
+      color: #3a2a2a;
       min-height: 100vh;
-      font-family: 'Roboto', sans-serif;
-      color: #333;
-      background: linear-gradient(135deg, #fceabb, #f8b500);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+
+    /* ── Hero / Timer ── */
+    .hero {
+      text-align: center;
+      padding: 60px 0 48px;
+      border-bottom: 1px solid rgba(210, 160, 160, 0.25);
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #c08888;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: #3a2a2a;
+      margin-bottom: 8px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: #c95f5f;
+    }
+
+    .timer-row {
       display: flex;
       justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+    }
+
+    .tick {
+      background: #fff;
+      border: 1px solid rgba(210, 160, 160, 0.35);
+      border-radius: 18px;
+      padding: 20px 24px;
+      text-align: center;
+      min-width: 88px;
+      box-shadow: 0 2px 16px rgba(210, 130, 120, 0.07);
+    }
+
+    .tick-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: #c95f5f;
+      line-height: 1;
+    }
+
+    .tick-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c08888;
+      margin-top: 6px;
+    }
+
+    /* ── Sections ── */
+    .section {
+      margin-top: 60px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #c08888;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    /* ── Love / Hate Cards ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid rgba(210, 160, 160, 0.3);
+      border-radius: 24px;
+      padding: 32px 28px;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #3a2a2a;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .card-title em {
+      font-style: italic;
+      color: #c95f5f;
+    }
+
+    .love-item {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(210, 160, 160, 0.15);
+      font-size: 14.5px;
+      color: #5a3a3a;
+      line-height: 1.5;
+    }
+
+    .love-item:last-child {
+      border-bottom: none;
+    }
+
+    .love-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #e07878;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    /* ── Photo Grid ── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .photo-slot {
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid rgba(210, 160, 160, 0.3);
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-    }
-
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-
-    .container {
-      max-width: 900px;
-      padding: 40px;
-      background: rgba(255,255,255,0.85);
-      border-radius: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    .timer h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 3rem;
-      margin-bottom: 25px;
-      color: #ff6b81;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    }
-
-    .time div {
-      background: rgba(255,255,255,0.6);
-      padding: 20px 15px;
-      border-radius: 16px;
-      min-width: 80px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-
-    .time div:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-
-    .time span {
-      display: block;
-      font-size: 2rem;
-      font-weight: bold;
-      color: #ff6b81;
-    }
-
-    .time small {
-      display: block;
-      font-size: 0.9rem;
-      opacity: 0.85;
-      color: #555;
-    }
-
-    .card-custom {
-      background: rgba(255,255,255,0.7);
-      border-radius: 25px;
-      padding: 25px;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
+      justify-content: center;
+      gap: 8px;
       cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
     }
 
-    .card-custom:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    .photo-slot:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(210, 130, 120, 0.12);
     }
 
-    .card-custom h2 {
-      font-family: 'Pacifico', cursive;
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-      color: #ff6b81;
+    .photo-slot svg {
+      width: 28px;
+      height: 28px;
+      stroke: #d4a0a0;
+      stroke-width: 1.5;
+      fill: none;
     }
 
-    .card-custom p {
-      line-height: 1.6;
-      font-size: 1rem;
-      opacity: 0.95;
-      color: #333;
+    .photo-slot span {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #d4a0a0;
     }
 
-    .music-section h2 {
-      font-family: 'Pacifico', cursive;
-      font-size: 2rem;
-      margin: 35px 0 20px 0;
-      text-align: center;
-      color: #ff6b81;
+    .photo-slot.featured {
+      grid-column: span 2;
+      grid-row: span 2;
+      aspect-ratio: auto;
+      min-height: 260px;
     }
 
-    .music-section audio {
+    .photo-slot img {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      max-width: 400px;
-      border-radius: 12px;
-      display: block;
-      margin: 0 auto 40px auto;
-      outline: none;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 18px;
     }
 
-    @media (max-width: 768px) {
-      .time div { min-width: 60px; padding: 15px; }
-      .timer h1 { font-size: 2.2rem; }
-      .card-custom h2 { font-size: 1.5rem; }
+    /* hidden file input trick */
+    .photo-slot input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ── Music ── */
+    .music-section {
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .music-card {
+      background: #fff;
+      border: 1px solid rgba(210, 160, 160, 0.3);
+      border-radius: 24px;
+      padding: 36px 28px;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .music-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: #3a2a2a;
+      margin-bottom: 24px;
+    }
+
+    audio {
+      width: 100%;
+      max-width: 380px;
+      outline: none;
+      border-radius: 40px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* ── Footer ── */
+    .footer-sig {
+      text-align: right;
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(210, 160, 160, 0.2);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: #c08888;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .hero-title { font-size: 2.2rem; }
+      .tick-num { font-size: 1.8rem; }
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
+      .photo-slot.featured { grid-column: span 2; }
+      .page { padding: 32px 20px 60px; }
     }
   </style>
 </head>
 <body>
 
-<div class="container py-5 text-center">
-  <!-- Top Timer -->
-  <div class="timer mb-5">
-    <h1>It's been.....</h1>
-    <div class="d-flex justify-content-center gap-3 flex-wrap time">
-      <div>
-        <span id="days">0</span>
-        <small>Days</small>
+<div class="page">
+
+  <!-- Hero + Timer -->
+  <div class="hero">
+    <p class="eyebrow">since October 16, 2024</p>
+    <h1 class="hero-title">It's been… <em>a while, baby.</em></h1>
+    <div class="timer-row">
+      <div class="tick"><div class="tick-num" id="days">0</div><div class="tick-label">Days</div></div>
+      <div class="tick"><div class="tick-num" id="hours">0</div><div class="tick-label">Hours</div></div>
+      <div class="tick"><div class="tick-num" id="minutes">0</div><div class="tick-label">Minutes</div></div>
+      <div class="tick"><div class="tick-num" id="seconds">0</div><div class="tick-label">Seconds</div></div>
+    </div>
+  </div>
+
+  <!-- Love + Hate Cards -->
+  <div class="section">
+    <p class="section-label">A few things</p>
+    <div class="cards">
+      <div class="card">
+        <h2 class="card-title">Things I <em>love</em> about you</h2>
+        <div class="love-item"><span class="love-dot"></span>Your eyes</div>
+        <div class="love-item"><span class="love-dot"></span>Your face</div>
+        <div class="love-item"><span class="love-dot"></span>The way you say my name</div>
+        <div class="love-item"><span class="love-dot"></span>The way you smile</div>
+        <div class="love-item"><span class="love-dot"></span>The way you say hello and "sasa"</div>
+        <div class="love-item"><span class="love-dot"></span>When you call me "babygirl"</div>
+        <div class="love-item"><span class="love-dot"></span>How you look in jeans… damn</div>
+        <div class="love-item"><span class="love-dot"></span>You're hot</div>
       </div>
-      <div>
-        <span id="hours">0</span>
-        <small>Hours</small>
-      </div>
-      <div>
-        <span id="minutes">0</span>
-        <small>Minutes</small>
-      </div>
-      <div>
-        <span id="seconds">0</span>
-        <small>Seconds</small>
+      <div class="card">
+        <h2 class="card-title">Things I <em>hate</em> about you</h2>
+        <div class="love-item"><span class="love-dot"></span>You think I'm weird</div>
+        <div class="love-item"><span class="love-dot"></span>That you don't encourage my tantrums</div>
       </div>
     </div>
   </div>
 
-  <!-- Cards Section -->
-  <div class="row g-4">
-    <div class="col-md-6">
-      <div class="card-custom">
-        <h2>Things I Love About You</h2>
-        <p>
-          Your eyes 👀<br>
-          Your face 😊<br>
-          The way you say my name 💖<br>
-          The way you smile 😍<br>
-          The way you say hello and "sasa" 🙌<br>
-          When you call me "babygirl" 🥰<br>
-          How you look in jeans.....Damn!!!<br>
-          You're Hot 🥰<br>
-        </p>
+  <!-- Photo Grid -->
+  <div class="photo-section section">
+    <p class="section-label">Our moments</p>
+    <div class="photo-grid">
+      <div class="photo-slot featured" id="slot0" onclick="document.getElementById('file0').click()">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Add photo</span>
+        <input type="file" id="file0" accept="image/*" style="display:none" onchange="loadPhoto(this,'slot0')">
       </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card-custom">
-        <h2>Things I Hate About You</h2>
-        <p>
-          You think I'm weird 😅<br>
-          That you don't encourage my tantrums<br>
-        </p>
+      <div class="photo-slot" id="slot1" onclick="document.getElementById('file1').click()">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Add photo</span>
+        <input type="file" id="file1" accept="image/*" style="display:none" onchange="loadPhoto(this,'slot1')">
+      </div>
+      <div class="photo-slot" id="slot2" onclick="document.getElementById('file2').click()">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Add photo</span>
+        <input type="file" id="file2" accept="image/*" style="display:none" onchange="loadPhoto(this,'slot2')">
+      </div>
+      <div class="photo-slot" id="slot3" onclick="document.getElementById('file3').click()">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Add photo</span>
+        <input type="file" id="file3" accept="image/*" style="display:none" onchange="loadPhoto(this,'slot3')">
+      </div>
+      <div class="photo-slot" id="slot4" onclick="document.getElementById('file4').click()">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Add photo</span>
+        <input type="file" id="file4" accept="image/*" style="display:none" onchange="loadPhoto(this,'slot4')">
       </div>
     </div>
   </div>
 
-  <!-- Music Section -->
-  <div class="music-section">
-    <h2>A Song for you</h2>
-    <audio controls autoplay loop>
-  <source src="oursong.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
+  <!-- Music -->
+  <div class="music-section section">
+    <div class="music-card">
+      <p class="music-title">A song for you…</p>
+      <audio controls loop>
+        <source src="oursong.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
   </div>
+
+  <div class="footer-sig">with lots of love, Eileen ♡</div>
+
 </div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
-  const startDate = new Date("October 16, 2024 00:00:00").getTime();
+  const start = new Date("October 16, 2024 00:00:00").getTime();
 
-  function updateTimer() {
-    const now = new Date().getTime();
-    const diff = now - startDate;
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
+  function tick() {
+    const d = new Date().getTime() - start;
+    document.getElementById('days').textContent    = Math.floor(d / 864e5);
+    document.getElementById('hours').textContent   = Math.floor((d / 36e5) % 24);
+    document.getElementById('minutes').textContent = Math.floor((d / 6e4) % 60);
+    document.getElementById('seconds').textContent = Math.floor((d / 1e3) % 60);
   }
 
-  updateTimer();
-  setInterval(updateTimer, 1000);
+  tick();
+  setInterval(tick, 1000);
+
+  function loadPhoto(input, slotId) {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const slot = document.getElementById(slotId);
+      slot.querySelectorAll('svg, span').forEach(el => el.style.display = 'none');
+      let img = slot.querySelector('img');
+      if (!img) { img = document.createElement('img'); slot.prepend(img); }
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
 </script>
 
 </body>
